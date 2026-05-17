@@ -1,0 +1,234 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Poppins', 'Segoe UI', system-ui, sans-serif;
+    background: #fef9f0;
+    overflow-x: hidden;
+  }
+  
+  /* ========== PAGE TRANSITIONS ========== */
+  .page {
+    display: none;
+    animation: fadeSlideUp 0.5s cubic-bezier(0.2, 0.9, 0.4, 1.1) forwards;
+  }
+  
+  .page.active-page {
+    display: block;
+  }
+  
+  @keyframes fadeSlideUp {
+    0% {
+      opacity: 0;
+      transform: translateY(28px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Logo & Transitions */
+  .logo-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.35s ease;
+    cursor: pointer;
+  }
+  
+  .logo-wrapper:hover {
+    transform: scale(1.05) rotate(-1deg);
+    filter: drop-shadow(0 6px 14px rgba(139, 69, 19, 0.25));
+  }
+  
+  .logo-img {
+    width: 48px;
+    height: 48px;
+    transition: transform 0.4s ease;
+  }
+  
+  .logo-wrapper:hover .logo-img {
+    transform: rotate(8deg) scale(1.08);
+  }
+  
+  .brand-text {
+    font-size: 1.8rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, #6f4e2e, #b87c4f);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    letter-spacing: -0.5px;
+  }
+  
+  /* Navbar */
+  .navbar {
+    transition: all 0.3s;
+    background: rgba(255, 248, 240, 0.98) !important;
+    backdrop-filter: blur(2px);
+  }
+  
+  .nav-link {
+    font-weight: 600;
+    transition: all 0.25s;
+    position: relative;
+  }
+  
+  .nav-link:hover {
+    color: #b87c4f !important;
+    transform: translateY(-2px);
+  }
+  
+  .nav-link.active {
+    color: #b87c4f !important;
+    border-bottom: 3px solid #b87c4f;
+  }
+  
+  /* Hero Section */
+  .hero-section {
+    background: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.5)), url('https://images.pexels.com/photos/312418/pexels-photo-312418.jpeg?auto=compress&cs=tinysrgb&w=1600');
+    background-size: cover;
+    background-position: center 30%;
+    min-height: 85vh;
+    display: flex;
+    align-items: center;
+    border-radius: 0 0 3rem 3rem;
+  }
+  
+  /* Coffee Cards styling */
+  .coffee-card {
+    border: none;
+    border-radius: 1.5rem;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.08);
+    background: white;
+    height: 100%;
+  }
+  
+  .coffee-card:hover {
+    transform: translateY(-12px) scale(1.01);
+    box-shadow: 0 30px 40px rgba(0,0,0,0.15);
+  }
+  
+  .coffee-img {
+    height: 230px;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+  }
+  
+  .coffee-card:hover .coffee-img {
+    transform: scale(1.05);
+  }
+  
+  .price-tag {
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: #a5673f;
+  }
+  
+  .old-price {
+    text-decoration: line-through;
+    font-size: 0.9rem;
+    color: #999;
+    margin-left: 8px;
+  }
+  
+  .btn-add-cart {
+    background-color: #6f4e2e;
+    color: white;
+    border-radius: 40px;
+    padding: 8px 18px;
+    font-weight: 600;
+    transition: all 0.25s;
+    border: none;
+    width: 100%;
+  }
+  
+  .btn-add-cart:hover {
+    background-color: #8b5a34;
+    transform: scale(0.97);
+    letter-spacing: 0.5px;
+  }
+  
+  .btn-coffee {
+    background: #a5673f;
+    color: white;
+    border-radius: 50px;
+    padding: 10px 32px;
+    transition: 0.25s;
+    font-weight: 600;
+  }
+  
+  .btn-coffee:hover {
+    background: #7e4e2e;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 14px rgba(0,0,0,0.15);
+  }
+  
+  .section-title {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 2rem;
+  }
+  .section-title:after {
+    content: '';
+    position: absolute;
+    bottom: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background: #d98c2b;
+    border-radius: 3px;
+  }
+  
+  .about-img-custom {
+    border-radius: 2rem;
+    transition: all 0.45s ease;
+    object-fit: cover;
+    height: 380px;
+    width: 100%;
+  }
+  .about-img-custom:hover {
+    transform: scale(1.01);
+    box-shadow: 0 20px 30px rgba(0,0,0,0.1);
+  }
+  
+  .toast-notify {
+    position: fixed;
+    bottom: 30px;
+    right: 25px;
+    z-index: 1090;
+    background: #2c3e2f;
+    color: white;
+    padding: 12px 26px;
+    border-radius: 60px;
+    font-weight: 600;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+    transition: opacity 0.3s, transform 0.2s;
+    opacity: 0;
+    pointer-events: none;
+  }
+  
+  .footer-dark {
+    background: #2a241f;
+  }
+  
+  .badge-hot {
+    background: #e67e22;
+    color: white;
+    font-size: 0.7rem;
+    padding: 3px 8px;
+    border-radius: 20px;
+  }
+  
+  @media (max-width: 768px) {
+    .hero-section { min-height: 65vh; }
+    .brand-text { font-size: 1.3rem; }
+    .logo-img { width: 38px; height: 38px; }
+  }
